@@ -119,6 +119,14 @@ class Question
     @user_id = options['associated_author']
   end
   
+  def likers 
+    QuestionLike.likers_for_question_id(@id)
+  end
+  
+  # def num_likers
+  #   QuestionLike.num_likes
+  # end
+  
   def followers
     QuestionFollow.followers_for_question_id(@id)
   end
@@ -370,6 +378,10 @@ class QuestionLike
     end
     result
   end
+  
+  # def self.num_likes_for_question(question_id)
+  #   QuestionLike.likers_for_question_id(question_id).count
+  # end
 end  
 
 if __FILE__ == $PROGRAM_NAME
